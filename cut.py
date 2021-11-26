@@ -104,7 +104,7 @@ class Cut:
                         data[self.HEIGHT] = data[self.HEIGHT]*self.separate_y
                         new_datas[data[-2]][i].append(data[:-2])
                         break
-        if(os.path.exists('{}/separate'.format(self.dir_name)==False)):
+        if not(os.path.exists('{}/separate'.format(self.dir_name))):
             os.makedirs('{}/separate'.format(self.dir_name))
         for i in new_datas:
             for j in new_datas[i]:
