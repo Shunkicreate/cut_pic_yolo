@@ -121,8 +121,8 @@ class Cut:
                             write_data = ''
 
                     f.write(write_data)
-                    print('{}_x{}_y{}.txt\n'.format(
-                        file_name, (i), j), write_data)
+                    # print('{}_x{}_y{}.txt\n'.format(
+                    #     file_name, (i), j), write_data)
 
         with open('{}/classes.txt'.format(self.dir_name), mode='r') as f: #アノテーションのクラス情報のコピー
             with open('{}/separate/classes.txt'.format(self.dir_name), mode='w') as g:
