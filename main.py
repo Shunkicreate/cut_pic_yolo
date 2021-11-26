@@ -27,7 +27,12 @@ if args.source:
 
 
 cut = Cut(separate_x=separate_x, separate_y=separate_y, dir_name=dir_name)
-file_names = cut.get_path()
+try:
+    file_names = cut.get_path()
+except Exception as e:
+    print(e)
+    exit()
+    
 for file_name in file_names:
     cut.cut_yolo(file_name = file_name)
     cut.cut_pic(file_name = file_name)

@@ -19,8 +19,13 @@ class Cut:
         files = os.listdir(self.dir_name)
         files = [f for f in files if (
             os.path.isfile(os.path.join(self.dir_name, f)))]
-        files = [f for f in files if (f[-3:] == 'jpg') or (f[-3:] == 'jpeg')]
-        return files  # 拡張子付きの画像データのファイル名のリストを返す．
+        jpg_files = [f for f in files if (f[-3:] == 'jpg') or (f[-3:] == 'jpeg')]
+        text_files = [f for f in files if (f[-3:] == 'txt') and (f != 'classes.txt')]
+        self.data_num = len(jpg_files)*self.separate_x*self.separate_y
+        if(len(jpg_files) != len(text_files)):
+            raise Exception('Error. The amount of images and the amount of annotations are different.')
+
+        return jpg_files  # 拡張子付きの画像データのファイル名のリストを返す．
 
     def cut_yolo(self, file_name):  # yoloファイルの分割関数．
         file_text = []
