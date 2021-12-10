@@ -148,3 +148,12 @@ class Cut:
                 cy = cy+int(h/self.separate_y)
             cy = 0
             cx = cx+int(w/self.separate_x)
+    
+    def copy(self,test = 1, val = 2, train = 7):
+        test /= 10
+        val /= 10
+        train /= 10
+        dir_content = os.listdir(path=self.dir_name)
+        print(dir_content)
+        
+        return None
